@@ -8,7 +8,7 @@ pageextension 1000202 EmployeeCardPaymentCurrencyExt extends "Employee Card"
     {
         addafter("Employee Posting Group")
         {
-            field("Payment Currency Code"; Rec."Payment Currency Code")
+            field("Centime Payment Currency Code"; Rec."Centime Payment Currency Code")
             {
                 ApplicationArea = All;
             }

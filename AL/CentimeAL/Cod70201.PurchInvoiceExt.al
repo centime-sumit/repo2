@@ -24,8 +24,8 @@ codeunit 1000201 "PurchInvLastModUpdater"
                     VendLedgEntry.SetRange("Entry No.", PurchInvAgg."Vendor Ledger Entry No.");
                     if VendLedgEntry.FindFirst() then begin
                         VendorModDt := VendLedgEntry.SystemModifiedAt;
-                        if VendorModDt > PurchInvAgg."Vendor Ledger Last Modified Date" then begin
-                            PurchInvAgg."Vendor Ledger Last Modified Date" := VendorModDt;
+                        if VendorModDt > PurchInvAgg."Centime Vendor Ledger Last Modified Date" then begin
+                            PurchInvAgg."Centime Vendor Ledger Last Modified Date" := VendorModDt;
                             PurchInvAgg.Modify();
                             UpdatedCount += 1;
                         end;
@@ -57,8 +57,8 @@ codeunit 1000201 "PurchInvLastModUpdater"
         PurchInvAgg.SetRange("Vendor Ledger Entry No.", VendLedgEntryNo);
         if PurchInvAgg.FindSet(true, false) then begin
             repeat
-                if VendorModDt > PurchInvAgg."Vendor Ledger Last Modified Date" then begin
-                    PurchInvAgg."Vendor Ledger Last Modified Date" := VendorModDt;
+                if VendorModDt > PurchInvAgg."Centime Vendor Ledger Last Modified Date" then begin
+                    PurchInvAgg."Centime Vendor Ledger Last Modified Date" := VendorModDt;
                     PurchInvAgg.Modify();
                 end;
             until PurchInvAgg.Next() = 0;

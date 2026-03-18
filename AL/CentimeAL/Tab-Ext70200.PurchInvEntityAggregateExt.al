@@ -6,9 +6,10 @@ tableextension 1000200 PurchInvEntityAggregateExt extends "Purch. Inv. Entity Ag
 {
     fields
     {
-        field(70200; "Vendor Ledger Last Modified Date"; DateTime)
+        field(1000200; "Centime Vendor Ledger Last Modified Date"; DateTime)
         {
-            Caption = 'Vendor Ledger Last Modified Date';
+            Caption = 'Centime Vendor Ledger Last Modified Date';
+            DataClassification = SystemMetadata;
         }
     }
 }

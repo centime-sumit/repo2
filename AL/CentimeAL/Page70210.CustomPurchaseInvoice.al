@@ -526,9 +526,9 @@ page 1000210 PurchaseInvoices
                 {
                     Caption = 'Last Modified Date';
                 }
-                field(vendorLedgerLastModifiedDate; Rec."Vendor Ledger Last Modified Date")
+                field(vendorLedgerLastModifiedDate; Rec."Centime Vendor Ledger Last Modified Date")
                 {
-                    Caption = 'Vendor Ledger Last Modified Date';
+                    Caption = 'Centime Vendor Ledger Last Modified Date';
                     Editable = false;
                 }
                 field(createdBy; Rec.SystemCreatedBy)
@@ -732,10 +732,10 @@ page 1000210 PurchaseInvoices
         // --- Persist computed max datetime to the aggregate table so OData filter can use it ---
         if HasAny then begin
             // Make sure field is loaded before comparing
-            Rec.LoadFields("Vendor Ledger Last Modified Date");
+            Rec.LoadFields("Centime Vendor Ledger Last Modified Date");
 
-            if Rec."Vendor Ledger Last Modified Date" <> MaxDT then begin
-                Rec."Vendor Ledger Last Modified Date" := MaxDT;
+            if Rec."Centime Vendor Ledger Last Modified Date" <> MaxDT then begin
+                Rec."Centime Vendor Ledger Last Modified Date" := MaxDT;
 
                 Rec.Modify(true);
             end;

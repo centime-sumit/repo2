@@ -8,9 +8,9 @@ tableextension 1000201 EmployeePaymentCurrencyExt extends Employee
 {
     fields
     {
-        field(70201; "Payment Currency Code"; Code[10])
+        field(1000201; "Centime Payment Currency Code"; Code[10])
         {
-            Caption = 'Payment Currency Code';
+            Caption = 'Centime Payment Currency Code';
             TableRelation = Currency.Code;
             DataClassification = CustomerContent;
         }
