@@ -4,7 +4,9 @@
   "appSourceCopMandatoryAffixes": [
     "<affix>"
   ],
-  "appFolders": [],
+  "appFolders": [
+  "AL/CentimeAL"
+  ],
   "testFolders": [],
   "bcptTestFolders": []
 }
