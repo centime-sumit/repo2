@@ -2,7 +2,7 @@ namespace CentimeAL.CentimeAL;
 
 using Microsoft.Projects.Resources.Resource;
 
-page 70240 Resource
+page 1000240 Resource
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

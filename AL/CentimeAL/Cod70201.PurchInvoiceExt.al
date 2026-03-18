@@ -3,7 +3,7 @@ namespace CentimeAL.CentimeAL;
 using Microsoft.Integration.Entity;
 using Microsoft.Purchases.Payables;
 
-codeunit 70201 "PurchInvLastModUpdater"
+codeunit 1000201 "PurchInvLastModUpdater"
 {
     SingleInstance = true;
 

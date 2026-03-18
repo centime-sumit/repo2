@@ -10,7 +10,7 @@ using Microsoft.Integration.Graph;
 using Microsoft.Integration.Entity;
 using Microsoft.API.V2;
 
-page 70200 "Customers"
+page 1000200 "Customers"
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

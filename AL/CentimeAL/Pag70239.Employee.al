@@ -2,7 +2,7 @@ namespace CentimeAL.CentimeAL;
 
 using Microsoft.HumanResources.Employee;
 
-page 70239 Employee
+page 1000239 Employee
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

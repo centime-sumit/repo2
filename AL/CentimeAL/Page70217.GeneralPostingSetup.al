@@ -2,7 +2,7 @@ namespace CentimeAL.CentimeAL;
 
 using Microsoft.Finance.GeneralLedger.Setup;
 
-page 70217 GeneralPostingSetup
+page 1000217 GeneralPostingSetup
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

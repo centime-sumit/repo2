@@ -8,7 +8,7 @@ using Microsoft.FixedAssets.FixedAsset;
 using Microsoft.Projects.Resources.Resource;
 
 
-codeunit 70200 "LineGLResolver"
+codeunit 1000200 "LineGLResolver"
 {
     SingleInstance = true;
 

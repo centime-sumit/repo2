@@ -3,7 +3,7 @@ namespace CentimeAL.CentimeAL;
 using Microsoft.Purchases.History;
 using Microsoft.Purchases.Document;
 
-page 70238 PurchaseCreditMemoLines
+page 1000238 PurchaseCreditMemoLines
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

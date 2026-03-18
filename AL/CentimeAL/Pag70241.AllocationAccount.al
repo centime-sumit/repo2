@@ -2,7 +2,7 @@ namespace CentimeAL.CentimeAL;
 
 using Microsoft.Finance.AllocationAccount;
 
-page 70241 AllocationAccount
+page 1000241 AllocationAccount
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

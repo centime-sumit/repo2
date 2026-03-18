@@ -2,7 +2,7 @@ namespace CentimeAL.CentimeAL;
 
 using Microsoft.Purchases.Vendor;
 
-page 70237 vendorBankAccount
+page 1000237 vendorBankAccount
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

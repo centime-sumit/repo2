@@ -2,7 +2,7 @@ namespace CentimeAL.CentimeAL;
 
 using Microsoft.Integration.Entity;
 
-tableextension 70200 PurchInvEntityAggregateExt extends "Purch. Inv. Entity Aggregate"
+tableextension 1000200 PurchInvEntityAggregateExt extends "Purch. Inv. Entity Aggregate"
 {
     fields
     {

@@ -8,7 +8,7 @@ using Microsoft.FixedAssets.Setup;
 using Microsoft.Purchases.Vendor;
 using Microsoft.Sales.Customer;
 
-codeunit 70206 "GL Account Resolver"
+codeunit 1000206 "GL Account Resolver"
 {
     /// <summary>
     /// Resolves GL account number based on account type and account number.

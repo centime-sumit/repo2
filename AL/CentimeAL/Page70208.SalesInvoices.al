@@ -14,7 +14,7 @@ using System.Email;
 using Microsoft.Utilities;
 using Microsoft.API.V2;
 
-page 70208 "SaleInvoices"
+page 1000208 "SaleInvoices"
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

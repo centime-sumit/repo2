@@ -1,6 +1,6 @@
 namespace CentimeAL.CentimeAL;
 
-page 70219 "Grouped Vend Payment API"
+page 1000219 "Grouped Vend Payment API"
 {
     // APIGroup = 'sync';
     // APIPublisher = 'Centime';

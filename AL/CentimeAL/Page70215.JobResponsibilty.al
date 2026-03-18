@@ -2,7 +2,7 @@ namespace CentimeAL.CentimeAL;
 
 using Microsoft.CRM.Setup;
 
-page 70215 "Job Responsibilty"
+page 1000215 "Job Responsibilty"
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

@@ -5,7 +5,7 @@ using Microsoft.Finance.Currency;
 using Microsoft.Foundation.PaymentTerms;
 using Microsoft.Bank.BankAccount;
 using Microsoft.Integration.Graph;
-page 70201 "Vendors"
+page 1000201 "Vendors"
 {
 
     APIGroup = 'sync';

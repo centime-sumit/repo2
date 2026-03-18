@@ -13,7 +13,7 @@ using Microsoft.Sales.Receivables;
 using Microsoft.Sales.Setup;
 using System.Utilities;
 
-codeunit 70220 "CustomerGenJournalApply"
+codeunit 1000220 "CustomerGenJournalApply"
 {
     TableNo = "Gen. Journal Line";
 

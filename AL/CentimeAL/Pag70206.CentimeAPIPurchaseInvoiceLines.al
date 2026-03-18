@@ -12,7 +12,7 @@ using Microsoft.Finance.GeneralLedger.Setup;
 using Microsoft.Inventory.Location;
 using Microsoft.Finance.GeneralLedger.Account;
 
-page 70206 "Centime API - Purchase Invoice"
+page 1000206 "Centime API - Purchase Invoice"
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

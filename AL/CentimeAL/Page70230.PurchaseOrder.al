@@ -14,7 +14,7 @@ using Microsoft.Utilities;
 using System.Reflection;
 using Microsoft.API.V2;
 
-page 70230 "Purchase Orders"
+page 1000230 "Purchase Orders"
 {
 
     APIGroup = 'sync';

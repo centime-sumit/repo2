@@ -4,7 +4,7 @@ using Microsoft.Finance.GeneralLedger.Account;
 using Microsoft.API.V2;
 using Microsoft.Bank.BankAccount;
 
-page 70229 "Accounts"
+page 1000229 "Accounts"
 {
     APIVersion = 'v2.0';
     EntityCaption = 'Account';

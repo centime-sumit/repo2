@@ -11,7 +11,7 @@ using Microsoft.Inventory.Costing; // Item Charge
 using Microsoft.Projects.Resources.Resource; // Resource
 using Microsoft.Finance.AllocationAccount; // Allocation Account
 
-codeunit 70207 "DefaultDimensionEventSub"
+codeunit 1000207 "DefaultDimensionEventSub"
 {
     /// <summary>
     /// Handles Insert event for Default Dimension records.

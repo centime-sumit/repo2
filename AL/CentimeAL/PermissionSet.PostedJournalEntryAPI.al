@@ -3,7 +3,7 @@ namespace CentimeAL.CentimeAL;
 using Microsoft.Finance.GeneralLedger.Journal;
 using Microsoft.Finance.GeneralLedger.Account;
 
-permissionset 70202 "PostedJnlEntryAPI"
+permissionset 1000202 "PostedJnlEntryAPI"
 {
     Assignable = true;
     Caption = 'Posted Jnl Entry API';

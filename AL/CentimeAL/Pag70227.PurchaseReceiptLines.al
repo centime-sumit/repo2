@@ -7,7 +7,7 @@ using System.Upgrade;
 using Microsoft.Purchases.Document;
 using Microsoft.Integration.Entity;
 
-page 70227 PurchaseReceiptLines
+page 1000227 PurchaseReceiptLines
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

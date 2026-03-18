@@ -7,7 +7,7 @@ using Microsoft.Purchases.History;
 using Microsoft.Purchases.Posting;
 using Microsoft.Utilities;
 
-page 70236 "APIV2 - Purchase Credit Memos"
+page 1000236 "APIV2 - Purchase Credit Memos"
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

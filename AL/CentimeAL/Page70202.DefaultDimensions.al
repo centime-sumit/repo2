@@ -2,7 +2,7 @@ namespace CentimeAL.CentimeAL;
 
 using Microsoft.Finance.Dimension;
 
-page 70202 DefaultDimensions
+page 1000202 DefaultDimensions
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

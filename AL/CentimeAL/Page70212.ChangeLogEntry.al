@@ -3,7 +3,7 @@ namespace CentimeAL.CentimeAL;
 using System.Diagnostics;
 using Microsoft.Purchases.Vendor;
 
-page 70212 ChangeLogEntry
+page 1000212 ChangeLogEntry
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

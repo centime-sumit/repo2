@@ -13,7 +13,7 @@ using Microsoft.Purchases.Payables;
 using Microsoft.API.V2;
 using Microsoft.Foundation.PaymentTerms;
 
-page 70210 PurchaseInvoices
+page 1000210 PurchaseInvoices
 {
     APIVersion = 'v2.0';
     EntityCaption = 'Purchase Invoice';

@@ -2,7 +2,7 @@ namespace CentimeAL.CentimeAL;
 
 using Microsoft.Sales.Receivables;
 
-page 70226 DetailedCustomerLedgerEntry
+page 1000226 DetailedCustomerLedgerEntry
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

@@ -4,7 +4,7 @@ using Microsoft.HumanResources.Employee;
 using Microsoft.Finance.Currency;
 
 
-tableextension 70201 EmployeePaymentCurrencyExt extends Employee
+tableextension 1000201 EmployeePaymentCurrencyExt extends Employee
 {
     fields
     {

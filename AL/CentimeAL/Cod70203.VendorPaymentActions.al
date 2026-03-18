@@ -1,7 +1,7 @@
 namespace CentimeAL.CentimeAL;
 using Microsoft.Finance.GeneralLedger.Journal;
 using Microsoft.Purchases.Payables;
-codeunit 70203 "Vendor Payment Actions"
+codeunit 1000203 "Vendor Payment Actions"
 {
     Subtype = Normal;
     local procedure ProcessCredits(

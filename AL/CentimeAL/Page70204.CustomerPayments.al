@@ -8,7 +8,7 @@ using Microsoft.Finance.GeneralLedger.Posting;
 using Microsoft.Integration.Graph;
 using Microsoft.API.V2;
 
-page 70204 "CustomerPayments"
+page 1000204 "CustomerPayments"
 {
     APIVersion = 'v2.0';
     EntityCaption = 'Customer Payment';

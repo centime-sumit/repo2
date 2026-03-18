@@ -3,7 +3,7 @@ namespace CentimeAL.CentimeAL;
 using Microsoft.Purchases.Payables; // Detailed Vendor Ledg. Entry
 // no need to "use" your updater codeunit; call it by name
 
-codeunit 70202 "VendLedgEntryEventSub"
+codeunit 1000202 "VendLedgEntryEventSub"
 {
    
 

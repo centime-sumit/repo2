@@ -4,7 +4,7 @@ using Microsoft.Finance.GeneralLedger.Journal;
 using Microsoft.Finance.GeneralLedger.Account;
 using Microsoft.Integration.Graph;
 
-page 70252 "Posted Journal Entry API"
+page 1000252 "Posted Journal Entry API"
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

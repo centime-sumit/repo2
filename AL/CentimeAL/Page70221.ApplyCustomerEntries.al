@@ -16,7 +16,7 @@ using Microsoft.Service.Document;
 using Microsoft.Service.Posting;
 using Microsoft.Sales.Receivables;
 
-page 70221 "Apply Customer Entries"
+page 1000221 "Apply Customer Entries"
 {
     Caption = 'Apply Customer Entries';
     DataCaptionFields = "Customer No.";

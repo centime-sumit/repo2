@@ -8,7 +8,7 @@ using Microsoft.Inventory.Journal;
 using Microsoft.Inventory.Posting;
 using Microsoft.API.V2;
 
-page 70216 "Items"
+page 1000216 "Items"
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

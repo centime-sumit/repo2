@@ -1,6 +1,6 @@
 namespace CentimeAL.CentimeAL;
 
-page 70220 BulkVendorPayments
+page 1000220 BulkVendorPayments
 {
     /*APIGroup = 'sync';
     APIPublisher = 'Centime';

@@ -6,7 +6,7 @@ using Microsoft.Finance.GeneralLedger.Account;
 using Microsoft.Bank.BankAccount;
 using Microsoft.Integration.Graph;
 
-page 70207 GeneralJournalLines
+page 1000207 GeneralJournalLines
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

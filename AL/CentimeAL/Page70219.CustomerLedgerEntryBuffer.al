@@ -4,7 +4,7 @@ using Microsoft.Finance.GeneralLedger.Journal;
 using Microsoft.Sales.Customer;
 using Microsoft.Sales.Receivables;
 
-table 70219 "CustomerLedgerEntryBuffer"
+table 1000219 "CustomerLedgerEntryBuffer"
 {
     Caption = 'Customer Ledger Entry Buffer';
     TableType = Temporary;

@@ -3,7 +3,7 @@ namespace CentimeAL.CentimeAL;
 using Microsoft.Sales.Customer;
 using Microsoft.Purchases.Vendor;
 
-page 70213 VendorPostingGroups
+page 1000213 VendorPostingGroups
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

@@ -23,7 +23,7 @@ using System.Text;
 /// 
 /// Use: $filter=lastModifiedDateTime gt {lastSync}
 /// </summary>
-page 70244 "Sales Invoice Ledger API"
+page 1000244 "Sales Invoice Ledger API"
 {
     PageType = API;
     APIPublisher = 'Centime';

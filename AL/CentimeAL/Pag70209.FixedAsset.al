@@ -2,7 +2,7 @@ namespace CentimeAL.CentimeAL;
 
 using Microsoft.FixedAssets.FixedAsset;
 
-page 70209 FixedAsset
+page 1000209 FixedAsset
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

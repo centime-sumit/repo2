@@ -6,7 +6,7 @@ using Microsoft.Purchases.Vendor;
 using Microsoft.Integration.Graph;
 using Microsoft.API.V2;
 
-page 70224 "APIV2 - Purchase Receipts"
+page 1000224 "APIV2 - Purchase Receipts"
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';

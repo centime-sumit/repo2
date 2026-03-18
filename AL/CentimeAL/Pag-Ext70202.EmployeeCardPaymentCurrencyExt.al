@@ -2,7 +2,7 @@ namespace CentimeAL.CentimeAL;
 
 using Microsoft.HumanResources.Employee;
 
-pageextension 70202 EmployeeCardPaymentCurrencyExt extends "Employee Card"
+pageextension 1000202 EmployeeCardPaymentCurrencyExt extends "Employee Card"
 {
     layout
     {

@@ -5,7 +5,7 @@ using Microsoft.Finance.GeneralLedger.Journal;
 using Microsoft.Sales.Receivables;
 using Microsoft.Finance.ReceivablesPayables;
 
-page 70218 "ApplyCustomerEntries"
+page 1000218 "ApplyCustomerEntries"
 {
     APIVersion = 'v2.0';
     EntityCaption = 'Apply Customer Entry';

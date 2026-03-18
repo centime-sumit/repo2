@@ -5,7 +5,7 @@ using Microsoft.Finance.GeneralLedger.Journal;
 using Microsoft.API.Upgrade;
 using Microsoft.Integration.Graph;
 
-codeunit 70223 "GraphMgtCustomerPayments"
+codeunit 1000223 "GraphMgtCustomerPayments"
 {
 
     trigger OnRun()

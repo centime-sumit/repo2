@@ -10,7 +10,7 @@ using Microsoft.Finance.GeneralLedger.Posting;
 using Microsoft.API.V2;
 
 
-page 70203 "VendorPayments"
+page 1000203 "VendorPayments"
 {
     APIVersion = 'v2.0';
     EntityCaption = 'Vendor Payment';

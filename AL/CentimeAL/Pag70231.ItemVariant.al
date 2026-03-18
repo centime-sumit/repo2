@@ -2,7 +2,7 @@ namespace CentimeAL.CentimeAL;
 
 using Microsoft.Inventory.Item;
 
-page 70231 ItemVariant
+page 1000231 ItemVariant
 {
     APIGroup = 'sync';
     APIPublisher = 'Centime';
