@@ -5,8 +5,9 @@
     "Centime"
   ],
   "appFolders": [
-  "AL/CentimeAL"
+    "AL/CentimeAL"
   ],
   "testFolders": [],
-  "bcptTestFolders": []
+  "bcptTestFolders": [],
+  "repoVersion": "2.0"
 }
