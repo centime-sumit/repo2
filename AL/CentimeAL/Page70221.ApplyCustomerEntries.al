@@ -851,15 +851,13 @@ page 1000221 "Apply Customer Entries"
         SalesTaxAmountLine.DeleteAll();
         if SalesHeader."Tax Area Code" <> '' then begin
             SalesTaxCalculate.StartSalesTaxCalculation();
-            with SalesLine do begin
-                SetRange("Document Type", SalesHeader."Document Type");
-                SetRange("Document No.", SalesHeader."No.");
-                if Find('-') then
-                    repeat
-                        if Type <> Type::" " then
-                            SalesTaxCalculate.AddSalesLine(SalesLine);
-                    until Next() = 0;
-            end;
+            SalesLine.SetRange("Document Type", SalesHeader."Document Type");
+            SalesLine.SetRange("Document No.", SalesHeader."No.");
+            if SalesLine.Find('-') then
+                repeat
+                    if SalesLine.Type <> SalesLine.Type::" " then
+                        SalesTaxCalculate.AddSalesLine(SalesLine);
+                until SalesLine.Next() = 0;
             SalesTaxCalculate.EndSalesTaxCalculation(SalesHeader."Posting Date");
             SalesTaxCalculate.GetSalesTaxAmountLineTable(SalesTaxAmountLine);
             TotalSalesLine."Amount Including VAT" := TotalSalesLine."Amount Including VAT" + SalesTaxAmountLine.GetTotalTaxAmount();
@@ -1189,29 +1187,27 @@ page 1000221 "Apply Customer Entries"
                             ApplnType::"Applies-to Doc. No.":
                                 begin
                                     AppliedCustLedgEntry := Rec;
-                                    with AppliedCustLedgEntry do begin
-                                        CalcFields("Remaining Amount");
-                                        if "Currency Code" <> ApplnCurrencyCode then
-                                            UpdateAmountsForApplication(ApplnDate, ApplnCurrencyCode, false, false);
+                                    AppliedCustLedgEntry.CalcFields("Remaining Amount");
+                                    if AppliedCustLedgEntry."Currency Code" <> ApplnCurrencyCode then
+                                        AppliedCustLedgEntry.UpdateAmountsForApplication(ApplnDate, ApplnCurrencyCode, false, false);
 
-                                        OnCalcApplnAmountOnCalcTypeGenJnlLineOnApplnTypeToDocNoOnBeforeSetAppliedAmount(Rec, ApplnDate, ApplnCurrencyCode);
-                                        if "Amount to Apply" <> 0 then
-                                            AppliedAmount := Round("Amount to Apply", AmountRoundingPrecision)
-                                        else
-                                            AppliedAmount := Round("Remaining Amount", AmountRoundingPrecision);
-                                        OnCalcApplnAmountOnCalcTypeGenJnlLineOnApplnTypeToDocNoOnAfterSetAppliedAmount(Rec, ApplnDate, ApplnCurrencyCode, AppliedAmount);
+                                    OnCalcApplnAmountOnCalcTypeGenJnlLineOnApplnTypeToDocNoOnBeforeSetAppliedAmount(Rec, ApplnDate, ApplnCurrencyCode);
+                                    if AppliedCustLedgEntry."Amount to Apply" <> 0 then
+                                        AppliedAmount := Round(AppliedCustLedgEntry."Amount to Apply", AmountRoundingPrecision)
+                                    else
+                                        AppliedAmount := Round(AppliedCustLedgEntry."Remaining Amount", AmountRoundingPrecision);
+                                    OnCalcApplnAmountOnCalcTypeGenJnlLineOnApplnTypeToDocNoOnAfterSetAppliedAmount(Rec, ApplnDate, ApplnCurrencyCode, AppliedAmount);
 
-                                        if PaymentToleranceMgt.CheckCalcPmtDiscGenJnlCust(
-                                            GenJnlLine, AppliedCustLedgEntry, 0, false) and
-                                           ((Abs(GenJnlLine.Amount) + ApplnRoundingPrecision >=
-                                            Abs(AppliedAmount - GetRemainingPmtDiscPossible(GenJnlLine."Posting Date"))) or
-                                            (GenJnlLine.Amount = 0))
-                                        then
-                                            PmtDiscAmount := GetRemainingPmtDiscPossible(GenJnlLine."Posting Date");
+                                    if PaymentToleranceMgt.CheckCalcPmtDiscGenJnlCust(
+                                        GenJnlLine, AppliedCustLedgEntry, 0, false) and
+                                       ((Abs(GenJnlLine.Amount) + ApplnRoundingPrecision >=
+                                        Abs(AppliedAmount - GetRemainingPmtDiscPossible(GenJnlLine."Posting Date"))) or
+                                        (GenJnlLine.Amount = 0))
+                                    then
+                                        PmtDiscAmount := GetRemainingPmtDiscPossible(GenJnlLine."Posting Date");
 
-                                        if not DifferentCurrenciesInAppln then
-                                            DifferentCurrenciesInAppln := ApplnCurrencyCode <> "Currency Code";
-                                    end;
+                                    if not DifferentCurrenciesInAppln then
+                                        DifferentCurrenciesInAppln := ApplnCurrencyCode <> AppliedCustLedgEntry."Currency Code";
                                     CheckRounding();
                                 end;
                             ApplnType::"Applies-to ID":
@@ -1235,20 +1231,18 @@ page 1000221 "Apply Customer Entries"
                             ApplnType::"Applies-to Doc. No.":
                                 begin
                                     AppliedCustLedgEntry := Rec;
-                                    with AppliedCustLedgEntry do begin
-                                        CalcFields("Remaining Amount");
+                                    AppliedCustLedgEntry.CalcFields("Remaining Amount");
 
-                                        if "Currency Code" <> ApplnCurrencyCode then
-                                            "Remaining Amount" :=
-                                            CurrExchRate.ExchangeAmtFCYToFCY(
-                                                ApplnDate, "Currency Code", ApplnCurrencyCode, "Remaining Amount");
+                                    if AppliedCustLedgEntry."Currency Code" <> ApplnCurrencyCode then
+                                        AppliedCustLedgEntry."Remaining Amount" :=
+                                        CurrExchRate.ExchangeAmtFCYToFCY(
+                                            ApplnDate, AppliedCustLedgEntry."Currency Code", ApplnCurrencyCode, AppliedCustLedgEntry."Remaining Amount");
 
-                                        OnCalcApplnAmountOnCalcTypeSalesHeaderOnApplnTypeToDocNoOnBeforeSetAppliedAmount(Rec, ApplnDate, ApplnCurrencyCode);
-                                        AppliedAmount := Round("Remaining Amount", AmountRoundingPrecision);
+                                    OnCalcApplnAmountOnCalcTypeSalesHeaderOnApplnTypeToDocNoOnBeforeSetAppliedAmount(Rec, ApplnDate, ApplnCurrencyCode);
+                                    AppliedAmount := Round(AppliedCustLedgEntry."Remaining Amount", AmountRoundingPrecision);
 
-                                        if not DifferentCurrenciesInAppln then
-                                            DifferentCurrenciesInAppln := ApplnCurrencyCode <> "Currency Code";
-                                    end;
+                                    if not DifferentCurrenciesInAppln then
+                                        DifferentCurrenciesInAppln := ApplnCurrencyCode <> AppliedCustLedgEntry."Currency Code";
                                     CheckRounding();
                                 end;
                             ApplnType::"Applies-to ID":
@@ -1404,7 +1398,7 @@ page 1000221 "Apply Customer Entries"
         if IsHandled then
             exit;
 
-        if not AppliedCustLedgEntry.FindSet(false, false) then
+        if not AppliedCustLedgEntry.FindSet() then
             exit;
 
         repeat
@@ -1626,19 +1620,17 @@ page 1000221 "Apply Customer Entries"
         SavedAppliedCustLedgerEntry: Record "Cust. Ledger Entry";
         CurrPosFilter: Text;
     begin
-        with TempAppliedCustLedgerEntry do begin
-            CurrPosFilter := GetFilter(Positive);
-            if CurrPosFilter <> '' then begin
-                SavedAppliedCustLedgerEntry := TempAppliedCustLedgerEntry;
-                SetRange(Positive, not Positive);
-                if FindSet() then
-                    repeat
-                        CalcFields("Remaining Amount");
-                        Result += "Remaining Amount";
-                    until Next() = 0;
-                SetFilter(Positive, CurrPosFilter);
-                TempAppliedCustLedgerEntry := SavedAppliedCustLedgerEntry;
-            end;
+        CurrPosFilter := TempAppliedCustLedgerEntry.GetFilter(Positive);
+        if CurrPosFilter <> '' then begin
+            SavedAppliedCustLedgerEntry := TempAppliedCustLedgerEntry;
+            TempAppliedCustLedgerEntry.SetRange(Positive, not TempAppliedCustLedgerEntry.Positive);
+            if TempAppliedCustLedgerEntry.FindSet() then
+                repeat
+                    TempAppliedCustLedgerEntry.CalcFields("Remaining Amount");
+                    Result += TempAppliedCustLedgerEntry."Remaining Amount";
+                until TempAppliedCustLedgerEntry.Next() = 0;
+            TempAppliedCustLedgerEntry.SetFilter(Positive, CurrPosFilter);
+            TempAppliedCustLedgerEntry := SavedAppliedCustLedgerEntry;
         end;
     end;
 

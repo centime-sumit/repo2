@@ -17,15 +17,15 @@ codeunit 1000201 "PurchInvLastModUpdater"
         UpdatedCount := 0;
 
         // Iterate all aggregates
-        if PurchInvAgg.FindSet(true, false) then begin
+        if PurchInvAgg.FindSet() then begin
             repeat
                 if PurchInvAgg."Vendor Ledger Entry No." <> 0 then begin
                     // match vendor ledger entry by Entry No.
                     VendLedgEntry.SetRange("Entry No.", PurchInvAgg."Vendor Ledger Entry No.");
                     if VendLedgEntry.FindFirst() then begin
                         VendorModDt := VendLedgEntry.SystemModifiedAt;
-                        if VendorModDt > PurchInvAgg."Centime Vendor Ledger Last Modified Date" then begin
-                            PurchInvAgg."Centime Vendor Ledger Last Modified Date" := VendorModDt;
+                        if VendorModDt > PurchInvAgg."Centime Last Modified Date" then begin
+                            PurchInvAgg."Centime Last Modified Date" := VendorModDt;
                             PurchInvAgg.Modify();
                             UpdatedCount += 1;
                         end;
@@ -55,10 +55,10 @@ codeunit 1000201 "PurchInvLastModUpdater"
 
         // update only aggregates that reference this vendor ledger entry
         PurchInvAgg.SetRange("Vendor Ledger Entry No.", VendLedgEntryNo);
-        if PurchInvAgg.FindSet(true, false) then begin
+        if PurchInvAgg.FindSet() then begin
             repeat
-                if VendorModDt > PurchInvAgg."Centime Vendor Ledger Last Modified Date" then begin
-                    PurchInvAgg."Centime Vendor Ledger Last Modified Date" := VendorModDt;
+                if VendorModDt > PurchInvAgg."Centime Last Modified Date" then begin
+                    PurchInvAgg."Centime Last Modified Date" := VendorModDt;
                     PurchInvAgg.Modify();
                 end;
             until PurchInvAgg.Next() = 0;

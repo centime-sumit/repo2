@@ -8,5 +8,11 @@
   "AL/CentimeAL"
   ],
   "testFolders": [],
-  "bcptTestFolders": []
+  "bcptTestFolders": [],
+  "type": "AppSource App",
+    "deliverToAppSource": {
+    "productId": "YOUR-PRODUCT-ID",
+    "continuousDelivery": true
+  },
+  "productId": "8b5df1df-0754-43d7-a504-b52133b83925" 
 }
