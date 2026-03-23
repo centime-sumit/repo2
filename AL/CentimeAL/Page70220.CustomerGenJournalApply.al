@@ -238,74 +238,73 @@ codeunit 1000220 "CustomerGenJournalApply"
         CustLedgEntry.Reset();
         CustLedgEntry.SetCurrentKey("Customer No.", Open, Positive);
         CustLedgEntry.SetRange("Customer No.", AccNo);
-            CustLedgEntry.SetRange(Open, true);
-            CustLedgEntry.SetRange("Applies-to ID", "Applies-to ID");
-            OnAfterCustLedgEntrySetFilters(CustLedgEntry, GenJnlLine, AccNo);
-            if CustLedgEntry.Find('-') then begin
-                CurrencyCode2 := CustLedgEntry."Currency Code";
-                if Amount = 0 then begin
-                    repeat
-                        if not TempCustLedgEntry.Get(CustLedgEntry."Entry No.") then begin
-                            PaymentToleranceMgt.DelPmtTolApllnDocNo(GenJnlLine, CustLedgEntry."Document No.");
-                            OnApplyCustomerLedgerEntryOnBeforeCheckAgainstApplnCurrency(GenJnlLine, CustLedgEntry);
-                            CheckAgainstApplnCurrency(CurrencyCode2, CustLedgEntry."Currency Code", AccType::Customer, true);
-                            UpdateCustLedgEntry(CustLedgEntry);
-                            IsHandled := false;
-                            OnBeforeFindCustApply(GenJnlLine, CustLedgEntry, Amount, IsHandled);
-                            if not IsHandled then
-                                if PaymentToleranceMgt.CheckCalcPmtDiscGenJnlCust(GenJnlLine, CustLedgEntry, 0, false) and
-                                   (Abs(CustLedgEntry."Amount to Apply") >=
-                                    Abs(CustLedgEntry."Remaining Amount" - CustLedgEntry.GetRemainingPmtDiscPossible(GenJnlLine."Posting Date")))
-                                then
-                                    Amount := Amount - (CustLedgEntry."Amount to Apply" - CustLedgEntry.GetRemainingPmtDiscPossible(GenJnlLine."Posting Date"))
-                                else
-                                    Amount := Amount - CustLedgEntry."Amount to Apply";
-                        end else
-                            GetAppliedAmountOnCustLedgerEntry(TempCustLedgEntry, AppliedAmount);
-                    until CustLedgEntry.Next() = 0;
-                    TempCustLedgEntry.DeleteAll();
-
-                    if AppliedAmount <> 0 then
-                        Amount += AppliedAmount;
-
-                    if ("Bal. Account Type" = "Bal. Account Type"::Customer) or ("Bal. Account Type" = "Bal. Account Type"::Vendor) then
-                        Amount := -Amount;
-                    Validate(Amount);
-                end else
-                    repeat
-                        OnApplyCustomerLedgerEntryOnBeforeCheckAgainstApplnCurrencyCustomerAmountNotZero(GenJnlLine, CustLedgEntry);
+        CustLedgEntry.SetRange(Open, true);
+        CustLedgEntry.SetRange("Applies-to ID", GenJnlLine."Applies-to ID");
+        OnAfterCustLedgEntrySetFilters(CustLedgEntry, GenJnlLine, AccNo);
+        if CustLedgEntry.Find('-') then begin
+            CurrencyCode2 := CustLedgEntry."Currency Code";
+            if GenJnlLine.Amount = 0 then begin
+                repeat
+                    if not TempCustLedgEntry.Get(CustLedgEntry."Entry No.") then begin
+                        PaymentToleranceMgt.DelPmtTolApllnDocNo(GenJnlLine, CustLedgEntry."Document No.");
+                        OnApplyCustomerLedgerEntryOnBeforeCheckAgainstApplnCurrency(GenJnlLine, CustLedgEntry);
                         CheckAgainstApplnCurrency(CurrencyCode2, CustLedgEntry."Currency Code", AccType::Customer, true);
-                    until CustLedgEntry.Next() = 0;
-                if "Currency Code" <> CurrencyCode2 then
-                    if Amount = 0 then begin
+                        UpdateCustLedgEntry(CustLedgEntry);
+                        IsHandled := false;
+                        OnBeforeFindCustApply(GenJnlLine, CustLedgEntry, GenJnlLine.Amount, IsHandled);
+                        if not IsHandled then
+                            if PaymentToleranceMgt.CheckCalcPmtDiscGenJnlCust(GenJnlLine, CustLedgEntry, 0, false) and
+                               (Abs(CustLedgEntry."Amount to Apply") >=
+                                Abs(CustLedgEntry."Remaining Amount" - CustLedgEntry.GetRemainingPmtDiscPossible(GenJnlLine."Posting Date")))
+                            then
+                                GenJnlLine.Amount := GenJnlLine.Amount - (CustLedgEntry."Amount to Apply" - CustLedgEntry.GetRemainingPmtDiscPossible(GenJnlLine."Posting Date"))
+                            else
+                                GenJnlLine.Amount := GenJnlLine.Amount - CustLedgEntry."Amount to Apply";
+                    end else
+                        GetAppliedAmountOnCustLedgerEntry(TempCustLedgEntry, AppliedAmount);
+                until CustLedgEntry.Next() = 0;
+                TempCustLedgEntry.DeleteAll();
+
+                if AppliedAmount <> 0 then
+                    GenJnlLine.Amount += AppliedAmount;
+
+                if (GenJnlLine."Bal. Account Type" = GenJnlLine."Bal. Account Type"::Customer) or (GenJnlLine."Bal. Account Type" = GenJnlLine."Bal. Account Type"::Vendor) then
+                    GenJnlLine.Amount := -GenJnlLine.Amount;
+                GenJnlLine.Validate(Amount);
+            end else
+                repeat
+                    OnApplyCustomerLedgerEntryOnBeforeCheckAgainstApplnCurrencyCustomerAmountNotZero(GenJnlLine, CustLedgEntry);
+                    CheckAgainstApplnCurrency(CurrencyCode2, CustLedgEntry."Currency Code", AccType::Customer, true);
+                until CustLedgEntry.Next() = 0;
+            if GenJnlLine."Currency Code" <> CurrencyCode2 then
+                if GenJnlLine.Amount = 0 then begin
                         IsHandled := false;
                         OnApplyCustomerLedgerEntryOnBeforeConfirmUpdateCurrency(GenJnlLine, CustLedgEntry."Currency Code", IsHandled);
                         if not IsHandled then begin
                             ConfirmCurrencyUpdate(GenJnlLine, CustLedgEntry."Currency Code");
-                            "Currency Code" := CustLedgEntry."Currency Code";
+                            GenJnlLine."Currency Code" := CustLedgEntry."Currency Code";
                         end;
                     end else begin
                         OnApplyCustomerLedgerEntryOnBeforeCheckAgainstApplnCurrencyCustomer(GenJnlLine, CustLedgEntry);
-                        CheckAgainstApplnCurrency("Currency Code", CustLedgEntry."Currency Code", AccType::Customer, true);
+                        CheckAgainstApplnCurrency(GenJnlLine."Currency Code", CustLedgEntry."Currency Code", AccType::Customer, true);
                     end;
-                "Applies-to Doc. Type" := "Applies-to Doc. Type"::" ";
-                "Applies-to Doc. No." := '';
+                GenJnlLine."Applies-to Doc. Type" := GenJnlLine."Applies-to Doc. Type"::" ";
+                GenJnlLine."Applies-to Doc. No." := '';
                 OnApplyCustomerLedgerEntryOnAfterSetCustomerAppliesToDocNo(GenJnlLine, CustLedgEntry);
             end else
-                "Applies-to ID" := '';
+                GenJnlLine."Applies-to ID" := '';
 
-            if (GenJnlLine."Applies-to ID" = '') and (CustomAppliesToId <> '') then
-                GenJnlLine."Applies-to ID" := CustomAppliesToId;
+        if (GenJnlLine."Applies-to ID" = '') and (CustomAppliesToId <> '') then
+            GenJnlLine."Applies-to ID" := CustomAppliesToId;
 
-            SetJournalLineFieldsFromApplication();
+        GenJnlLine.SetJournalLineFieldsFromApplication();
 
-            OnApplyCustomerLedgerEntryOnBeforeModify(GenJnlLine, CustLedgEntry);
+        OnApplyCustomerLedgerEntryOnBeforeModify(GenJnlLine, CustLedgEntry);
 
-            if Modify() then;
-            if Amount <> 0 then
-                if not PaymentToleranceMgt.PmtTolGenJnl(GenJnlLine) then
-                    exit;
-        end;
+        if GenJnlLine.Modify() then;
+        if GenJnlLine.Amount <> 0 then
+            if not PaymentToleranceMgt.PmtTolGenJnl(GenJnlLine) then
+                exit;
     end;
 
     procedure SetCustApplIdAPI(GenJournalLine: Record "Gen. Journal Line"; CustomerLedgerEntry: Record "Cust. Ledger Entry")

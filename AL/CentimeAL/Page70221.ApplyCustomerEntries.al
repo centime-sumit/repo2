@@ -1200,11 +1200,11 @@ page 1000221 "Apply Customer Entries"
 
                                     if PaymentToleranceMgt.CheckCalcPmtDiscGenJnlCust(
                                         GenJnlLine, AppliedCustLedgEntry, 0, false) and
-                                       ((Abs(GenJnlLine.Amount) + ApplnRoundingPrecision >=
-                                        Abs(AppliedAmount - GetRemainingPmtDiscPossible(GenJnlLine."Posting Date"))) or
+                                       ((Abs( GenJnlLine.Amount) + ApplnRoundingPrecision >=
+                                        Abs(AppliedAmount - AppliedCustLedgEntry.GetRemainingPmtDiscPossible(GenJnlLine."Posting Date"))) or
                                         (GenJnlLine.Amount = 0))
                                     then
-                                        PmtDiscAmount := GetRemainingPmtDiscPossible(GenJnlLine."Posting Date");
+                                        PmtDiscAmount := AppliedCustLedgEntry.GetRemainingPmtDiscPossible(GenJnlLine."Posting Date");
 
                                     if not DifferentCurrenciesInAppln then
                                         DifferentCurrenciesInAppln := ApplnCurrencyCode <> AppliedCustLedgEntry."Currency Code";
