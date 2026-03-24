@@ -2,7 +2,7 @@
   "id": "50b6f8b2-44bf-445f-8a94-fdcc6e37de55",
   "name": "CentimeAL",
   "publisher": "Centime",
-  "version": "1.0.0.400",
+  "version": "1.1.0.400",
 "brief": "Centime integration for Business Central.",
 "description": "Provides Centime integration capabilities for Business Central.",
 "privacyStatement": "https://centime.com/privacy",
